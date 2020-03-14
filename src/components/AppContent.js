@@ -13,7 +13,7 @@ class AppContent extends Component {
     render(){
         return(
             <div className='app'>
-                <Search />
+                <Search handleSearch={this.props.handleSearch}/>
                 {!!this.props.userinfo && <UserInfo userinfo={this.props.userinfo}/>}
                 {!!this.props.userinfo && <Actions />}
                 {!!this.props.repos.length && 
@@ -32,7 +32,7 @@ class AppContent extends Component {
 }
 
 AppContent.propTypes = {
-    userinfo: PropTypes.object.isRequired,
+    userinfo: PropTypes.object,
     repos: PropTypes.array.isRequired,
     starred: PropTypes.array.isRequired
 }
