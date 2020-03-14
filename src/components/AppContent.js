@@ -15,13 +15,18 @@ class AppContent extends Component {
             <div className='app'>
                 <Search handleSearch={this.props.handleSearch}/>
                 {!!this.props.userinfo && <UserInfo userinfo={this.props.userinfo}/>}
-                {!!this.props.userinfo && <Actions />}
-                {!!this.props.repos.length && 
+                {!!this.props.userinfo && 
+                <Actions 
+                    handleClickSeeRepository={this.props.handleClickSeeRepository}
+                    handleClickSeeRepoStarred={this.props.handleClickSeeRepoStarred}/>}
+                {!!this.props.repos.length &&
+                this.props.showRepositories && 
                 <Repos 
                     className='repos' 
                     title='Repositorios'
                     repos={this.props.repos}/>}
-                {!!this.props.starred.length && 
+                {!!this.props.starred.length &&
+                this.props.showStarred && 
                 <Repos 
                     className='starred' 
                     title='Favoritos'
