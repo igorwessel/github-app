@@ -1,32 +1,23 @@
 import React, { Component } from 'react'
-import Search from './components/Search'
-import UserInfo from './components/UserInfo'
-import Actions from './components/Actions'
-import Repos from './components/Repos'
+import AppContent from './components/AppContent'
 
 class App extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            userinfo: null,
+            repos: [],
+            starred: []
+        }
+    }
+
     render () {
         return (
-            <div className='app'>
-                <Search />
-                <UserInfo />
-                <Actions />
-                <Repos 
-                    className='repos' 
-                    title='Repositorios'
-                    repos={[{
-                        name: 'Nome do repositorio',
-                        link: '#'
-                    }]}/>
-                <Repos 
-                    className='starred' 
-                    title='Favoritos'
-                    repos={[{
-                        name: 'Nome do repositorio',
-                        link: '#'
-                    }]}/>
-            </div>
-            
+            <AppContent
+                userinfo={this.state.userinfo}
+                repos={this.state.repos}
+                starred={this.state.starred}
+            />
         )
     }
 }
