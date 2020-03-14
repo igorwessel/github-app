@@ -1,26 +1,34 @@
-'use strict'
-import React from 'react'
-import Square from './square';
-import Button from './button';
+import React, { Component } from 'react'
+import Search from './components/Search'
+import UserInfo from './components/UserInfo'
+import Actions from './components/Actions'
+import Repos from './components/Repos'
 
-const Title = props => {
-    return(
-        <h1>Hello world with ES6</h1>
-    );
-}
-
-function TitleWithES5(props){
-    return(
-        <h1>Hello world with ES5</h1>
-    )
-}
-
-const App = props => {
-    return(
-        <div>
-            <Button>Texto</Button>
-        </div>
-    )
+class App extends Component {
+    render () {
+        return (
+            <div className='app'>
+                <Search />
+                <UserInfo />
+                <Actions />
+                <Repos 
+                    className='repos' 
+                    title='Repositorios'
+                    repos={[{
+                        name: 'Nome do repositorio',
+                        link: '#'
+                    }]}/>
+                <Repos 
+                    className='starred' 
+                    title='Favoritos'
+                    repos={[{
+                        name: 'Nome do repositorio',
+                        link: '#'
+                    }]}/>
+            </div>
+            
+        )
+    }
 }
 
 export default App
