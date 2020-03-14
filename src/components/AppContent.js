@@ -13,8 +13,9 @@ class AppContent extends Component {
     render(){
         return(
             <div className='app'>
-                <Search handleSearch={this.props.handleSearch}/>
+                <Search isDisabled={this.props.isFetching} handleSearch={this.props.handleSearch}/>
                 {!!this.props.userinfo && <UserInfo userinfo={this.props.userinfo}/>}
+                {this.props.isFetching && <div>Carregando...</div>}
                 {!!this.props.userinfo && 
                 <Actions 
                     handleClickSeeRepository={this.props.handleClickSeeRepository}
@@ -39,7 +40,11 @@ class AppContent extends Component {
 AppContent.propTypes = {
     userinfo: PropTypes.object,
     repos: PropTypes.array.isRequired,
-    starred: PropTypes.array.isRequired
+    starred: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    handleSearch: PropTypes.func,
+    handleClickSeeRepository: PropTypes.func,
+    handleClickSeeRepoStarred: PropTypes.func
 }
 
 export default AppContent

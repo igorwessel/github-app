@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Actions extends Component {
     constructor(props){
@@ -13,6 +14,11 @@ class Actions extends Component {
             </div>
         )
     }
+}
+
+Actions.propTypes = {
+    handleClickSeeRepository: PropTypes.func.isRequired,
+    handleClickSeeRepoStarred: PropTypes.func.isRequired
 }
 
 export default Actions

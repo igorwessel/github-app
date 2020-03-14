@@ -12,6 +12,7 @@ class Search extends Component {
                 <input 
                 type='search' 
                 placeholder='Digite o nome do usuario do Github' 
+                disabled={this.props.isDisabled}
                 onKeyUp={this.props.handleSearch}
                 onChange={(e) => {
                     console.log('change', e.target.value)
@@ -22,7 +23,8 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-    handleSearch: PropsTypes.func.isRequired
+    handleSearch: PropsTypes.func.isRequired,
+    isDisabled: PropsTypes.bool.isRequired
 }
 
 export default Search
