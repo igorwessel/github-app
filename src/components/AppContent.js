@@ -12,7 +12,7 @@ class AppContent extends Component {
 
     render(){
         return(
-            <div className='app'>
+            <div className='content'>
                 <Search isDisabled={this.props.isFetching} handleSearch={this.props.handleSearch}/>
                 {!!this.props.userinfo && <UserInfo userinfo={this.props.userinfo}/>}
                 {this.props.isFetching && <div>Carregando...</div>}
@@ -20,6 +20,7 @@ class AppContent extends Component {
                 <Actions 
                     handleClickSeeRepository={this.props.handleClickSeeRepository}
                     handleClickSeeRepoStarred={this.props.handleClickSeeRepoStarred}/>}
+                <div className="repos-container">
                 {!!this.props.repos.length &&
                 this.props.showRepositories && 
                 <Repos 
@@ -32,6 +33,7 @@ class AppContent extends Component {
                     className='starred' 
                     title='Favoritos'
                     repos={this.props.starred}/>}
+                </div>
             </div>
         )
     }

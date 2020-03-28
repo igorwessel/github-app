@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import AppContent from './components/AppContent'
 import ajax from '@fdaciuk/ajax'
 
+import './global.css'
+
 class App extends Component {
     constructor(props){
         super(props)
